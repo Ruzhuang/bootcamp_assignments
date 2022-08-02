@@ -34,6 +34,8 @@ class Solution {
         return compare(root.left, root.right);
     }
     public boolean compare(TreeNode left, TreeNode right){
+        boolean one=false;
+        boolean two=false;
         if(left.val!=right.val){
             return false;
         }
@@ -46,7 +48,9 @@ class Solution {
             if(right.right==null){
                 return false;
             }
-            return compare(left.left,right.right);
+            if(!compare(left.left,right.right)){
+                return false;
+            };
         }
         if(left.right==null){
             if(right.left!=null){
@@ -57,7 +61,9 @@ class Solution {
             if(right.left==null){
                 return false;
             }
-            return compare(left.right,right.left);
+            if(!compare(left.right,right.left)){
+                return false;
+            };
         }
         return true;
            
